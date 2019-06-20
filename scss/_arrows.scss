@@ -1,0 +1,46 @@
+/* 
+ * NG-SlimPOP 
+ * ----------
+ * Arrow Link Activation Reference
+ */
+
+@import "_colors";
+.arrowLink {
+    cursor: zoom-in;
+}
+
+.arrowRight {
+    width: 0;
+    position: absolute;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid;
+    top: 13px;
+    left: 7px;
+    z-index: 1005;
+}
+
+.arrowDown {
+    width: 0;
+    position: absolute;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid;
+    top: 13px;
+    left: 7px;
+    z-index: 1005;
+}
+
+.arrow .arrowLink {
+    .arrowRight,
+    .arrowDown {
+        //
+    }
+    ;
+}
+
+.arrow-right:active {
+    background: $color_black;
+}

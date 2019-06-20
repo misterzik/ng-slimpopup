@@ -1,0 +1,30 @@
+<slim-modal [popupId]='popupId'>
+    <div class="modal">
+        <div class="modal-header sp-custom-header" [ngStyle]="{'background-color': config.theme.header_container.background }">
+            <img [src]="config.theme.header_container.left_image" class="sp-custom-img" [ngStyle]="{'width': config.theme.header_container.left_width }">
+            <span class=" title " [innerHTML]="config.theme.header_container.title "></span>
+        </div>
+        <div class="modal-body sp-custom-body" [ngStyle]="{'background-color': config.theme.body_container.background }">
+
+            <div class="list " #container (scroll)="refresh() ">
+                <div class="list-view">
+
+                    <ng-template [ngIf]="isLoaded ">
+                        <slim-item-list [parentId]="-1 " [level]="slimPopServ.dataModel[0].Level" rowHeight="25" [arrowConfig]="config.theme.body_container.arrows">
+                        </slim-item-list>
+                    </ng-template>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="modal-footer sp-custom-footer" [ngStyle]="{'background-color': config.theme.footer_container.background }">
+
+            <button class="btn waves-effect " [ngClass]="config.buttons.left.color " (click)="saveModal(savedData, popupId); ">{{config.buttons.left.label}}</button>
+            <button class="btn waves-effect " [ngClass]="config.buttons.right.color " (click)="closeModal(popupId); ">{{config.buttons.right.label}}</button> &nbsp;
+
+        </div>
+    </div>
+    <div class="modal-background sp-custom-modal-background"></div>
+</slim-modal>

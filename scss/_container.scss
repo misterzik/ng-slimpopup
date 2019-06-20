@@ -1,0 +1,39 @@
+/* 
+ * NG-SlimPOP 
+ * ----------
+ * Container Bone's
+ */
+
+@import "_mixins";
+@import "_colors";
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    @include user-select(none);
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        &:checked~.checkmark {
+            background-color: $color_light_blue;
+            &:after {
+                display: block;
+            }
+        }
+    }
+    &:hover input~.checkmark {
+        background-color: $color_red;
+    }
+    .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid $color_white;
+        border-width: 0 3px 3px 0;
+        @include transform(rotate(45deg));
+    }
+}

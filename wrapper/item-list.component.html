@@ -1,0 +1,4 @@
+<div *ngFor="let item of items | scrollMagicFilter : currentIndex : scrollSize; let i = index;">
+    <slimpop-node [item]="item" [level]="item.Level" [callBack]="nextPage.bind(this)" [arrows]="arrowConfig">
+    </slimpop-node>
+</div>

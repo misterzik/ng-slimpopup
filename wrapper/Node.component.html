@@ -1,0 +1,29 @@
+<div [ngClass]="'level-'+item.Level" #itemSelection>
+    <ul>
+        <li>
+            <div class="arrow" *ngIf="flag == false && !_lastFlag; else collapse">
+                <a (click)="showHideSubLevel(true)" class="arrowLink">
+                    <span class="arrowRight sp-custom-arrowRight" [ngStyle]="{'border-left-color': '#0177d6'}"></span>
+                </a>
+            </div>
+
+            <ng-template #collapse>
+                <a (click)="removeObj(false)" *ngIf="!_lastFlag">
+                    <span class="arrowDown sp-custom-arrowDown" [ngStyle]="{'border-top-color': '#0177d6'}"></span>
+                </a>
+            </ng-template>
+
+            <input type="radio" [id]="'cat-option-'+item.ID" name="selector" (click)="currentSelection(true, item)">
+            <label [for]="'cat-option-'+item.ID">{{item.Name}}</label>
+
+            <div class="check"></div>
+        </li>
+    </ul>
+
+    <!-- <div *ngIf="gutter == true">
+        <div class="gutter">
+            {{gutterMsg | json}}
+        </div>
+    </div> -->
+</div>
+<ng-template #templateContainer></ng-template>

@@ -1,0 +1,93 @@
+/* 
+ * NG-SlimPOP 
+ * ----------
+ * Application Outside Stylesheets
+ */
+
+@import "_mixins";
+@import "_colors";
+$radius_2x: 2px;
+// @extend-elements
+// Original Selectors
+// .btn, .btn-large, .btn-flat
+%btn_skeleton {
+    display: inline-block;
+    height: 36px;
+    outline: 0;
+    padding: 0 1rem;
+    border: none;
+    font-weight: 700;
+    @include border-radius-2x($radius_2x);
+    line-height: 36px;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+// Original Selectors
+// .btn-flat:hover, .btn-flat:focus, .whiteSecondaryBtn .btn:not(.disabled):hover, .whiteSecondaryBtn .btn:not(.disabled):focus
+%btn_skeleton_hoover {
+    outline: 0;
+    color: $color_rgba_blue;
+    background: $color_white;
+}
+
+::ng-deep .btn {
+    @extend %btn_skeleton;
+}
+
+::ng-deep .btn-large {
+    @extend %btn_skeleton;
+}
+
+::ng-deep .btn-flat {
+    @include box-shadow(none);
+    background-color: $color_transparent;
+    color: $color_blue;
+    cursor: pointer;
+    @extend %btn_skeleton;
+    &:hover {
+        @include box-shadow(none);
+        background-color: $color_white;
+        color: $color_rgba_blue;
+        cursor: pointer;
+        @extend %btn_skeleton_hoover;
+    }
+    &:focus {
+        @extend %btn_skeleton_hoover;
+    }
+}
+
+::ng-deep .btn-primary {
+    @include box-shadow(none);
+    background-color: $color_blue;
+    color: $color_white;
+    cursor: pointer;
+    @extend %btn_skeleton;
+    &:hover {
+        @include box-shadow(none);
+        background-color: $color_white;
+        color: $color_rgba_blue;
+        cursor: pointer;
+        @extend %btn_skeleton_hoover;
+    }
+    &:focus {
+        @extend %btn_skeleton_hoover;
+    }
+}
+
+::ng-deep .sp-link-effect {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    @include user-select(none);
+    vertical-align: middle;
+    z-index: 1;
+    will-change: opacity, transform;
+    @include transitions(all 0.6s ease-out);
+}
+
+a {
+    color: $color_blue;
+    text-decoration: none;
+}
